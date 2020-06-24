@@ -3,6 +3,7 @@ import * as MATERIAL from 'babylonjs-materials';
 import * as GUI from 'babylonjs-gui';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Vector3 } from 'babylonjs';
 
 export class GameUtils {
 
@@ -270,8 +271,8 @@ export class GameUtils {
         // create a mesh object with loaded from file
         let rootMesh = BABYLON.MeshBuilder.CreateBox("bowRoot", { size: 1 }, scene);
         rootMesh.isVisible = false;
-        rootMesh.position = new BABYLON.Vector3(-0.7, -1.5, 4);
-        rootMesh.rotation = new BABYLON.Vector3(0, Math.PI / 2 + Math.PI/16, 0);
+        rootMesh.position = new BABYLON.Vector3(-0.5, -1.5, 5);
+        rootMesh.rotation = new BABYLON.Vector3(0, Math.PI / 2 + Math.PI/64, 0);
         rootMesh.scaling = new BABYLON.Vector3(5, 5, 5);
         
         return GameUtils.createMeshFromObjFile("mesh/", "bow.obj", scene, new BABYLON.Vector3(1, 1, 1))
@@ -290,8 +291,8 @@ export class GameUtils {
         // create a mesh object with loaded from file
         let rootMesh = BABYLON.MeshBuilder.CreateBox("arrowRoot", { size: 1 }, scene);
         rootMesh.isVisible = false;
-        rootMesh.position = new BABYLON.Vector3(-0.4, -0.6, 5.5);
-        rootMesh.rotation = new BABYLON.Vector3(Math.PI / 2, Math.PI / 32,0);
+        rootMesh.position = new BABYLON.Vector3(-0.48, -0.67, 6.5);
+        rootMesh.rotation = new BABYLON.Vector3(Math.PI / 2, 0,0);
         rootMesh.scaling = new BABYLON.Vector3(5, 5, 5);
         return GameUtils.createMeshFromObjFile("mesh/", "arrow.obj", scene, new BABYLON.Vector3(1, 1, 1))
             .pipe(
@@ -308,7 +309,7 @@ export class GameUtils {
         // create a mesh object with loaded from file
         let rootMesh = BABYLON.MeshBuilder.CreateBox("sightRoot", { size: 1 }, scene);
         rootMesh.isVisible = false;
-        rootMesh.position = new BABYLON.Vector3(-0.17, 0,8);
+        rootMesh.position = new BABYLON.Vector3(-0.17, 0,9);
         rootMesh.rotation = new BABYLON.Vector3(0, Math.PI / 2, 0);
         rootMesh.scaling = new BABYLON.Vector3(5, 5, 5);
         return GameUtils.createMeshFromObjFile("mesh/", "sight.obj", scene, new BABYLON.Vector3(1, 1, 1))
@@ -330,10 +331,30 @@ export class GameUtils {
         crosshairMaterial.diffuseTexture.hasAlpha = true;
         crosshairMaterial.useAlphaFromDiffuseTexture = true;
         let crossHair = BABYLON.Mesh.CreateGround("crossHair", 0.2, 0.2, 32, scene, false);
-        crossHair.position = new BABYLON.Vector3(0, 0, 4);
+        crossHair.position = new BABYLON.Vector3(0, 0, 6);
         crossHair.rotation = new BABYLON.Vector3(Math.PI/2, 0, 0);
         crossHair.material = crosshairMaterial;
+        crossHair.isPickable = false;
 
         return crossHair;
+    }
+
+    public static createTarget(scene: BABYLON.Scene): Observable<BABYLON.AbstractMesh> {
+        let rootMesh = BABYLON.MeshBuilder.CreateBox("target", { size: 1 }, scene);
+        rootMesh.isVisible = false;
+        rootMesh.position = new BABYLON.Vector3(0, 2, 50);
+        rootMesh.rotation = new BABYLON.Vector3(0, Math.PI - Math.PI / 4, 0);
+        rootMesh.scaling = new BABYLON.Vector3(1, 1, 1);
+        return GameUtils.createMeshFromObjFile("mesh/", "target.obj", scene, new BABYLON.Vector3(1, 1, 1))
+            .pipe(
+                map(meshes => {
+                    meshes.forEach((mesh) => {
+                        mesh.parent = rootMesh;
+
+                    });
+                    return rootMesh;
+                })
+            );
+
     }
 }

@@ -1,0 +1,29 @@
+# Blender MTL File: 'Target.blend'
+# Material Count: 2
+
+newmtl ArcheryTarget
+Ns 18.000005
+Ka 1.000000 1.000000 1.000000
+Kd 0.588235 0.588235 0.588235
+Ks 0.097273 0.097273 0.097273
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd ..\\texture\\ArcheryTarget_Textures_1024\\ArcheryTarget\\ArcheryTarget_Base_Color.jpg
+map_Ns ..\\texture\\ArcheryTarget_Textures_1024\\ArcheryTarget\\ArcheryTarget_Roughness.jpg
+refl ..\\texture\\ArcheryTarget_Textures_1024\\ArcheryTarget\\ArcheryTarget_Metallic.jpg
+
+newmtl Wood
+Ns 18.000005
+Ka 1.000000 1.000000 1.000000
+Kd 0.588235 0.588235 0.588235
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd ..\\texture\\ArcheryTarget_Textures_1024\\Wood\\Wood_Base_Color.jpg
+map_Ks ..\\texture\\ArcheryTarget_Textures_1024\\Wood\\Wood_Specular_level.jpg
+map_Ns ..\\texture\\ArcheryTarget_Textures_1024\\Wood\\Wood_Roughness.jpg
+refl ..\\texture\\ArcheryTarget_Textures_1024\\Wood\\Wood_Metallic.jpg
