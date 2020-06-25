@@ -3,10 +3,8 @@
     "",
     "\\src",
     "\\src\\assets",
-    "\\src\\assets\\mesh",
-    "\\src\\assets\\texture",
-    "\\src\\assets\\texture\\BowV01Textures"
+    "\\src\\assets\\mesh"
   ],
-  "SelectedNode": "\\src\\assets\\texture\\BowV01Textures\\Mat_BowV01_Height.png",
+  "SelectedNode": "\\src\\assets\\mesh",
   "PreviewInSolutionExplorer": false
 }

@@ -40,9 +40,9 @@ export class GameUtils {
     /**
      * Creates a Gui Texture
      */
-    //public static createGUI() {
-    //    return GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
-    //}
+    public static createGUI() {
+        return GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
+    }
 
     /**
      * Creates a Button that tells the Shark to swim or not
@@ -131,6 +131,21 @@ export class GameUtils {
     //        txtZ: txtZ
     //    }
     //}
+
+    public static createScoreCoordinates(guiTexture: GUI.AdvancedDynamicTexture): { txtScore: GUI.TextBlock } {
+        let txtScore = new GUI.TextBlock();
+        txtScore.height = "80px";
+        txtScore.width = "300px";
+        txtScore.fontSize = "50px";
+        txtScore.text = "Score : 0";
+        txtScore.textHorizontalAlignment = GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+        txtScore.textVerticalAlignment = GUI.Control.VERTICAL_ALIGNMENT_CENTER;
+        txtScore.horizontalAlignment = GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
+        txtScore.verticalAlignment = GUI.Control.VERTICAL_ALIGNMENT_TOP;
+        guiTexture.addControl(txtScore);
+        return { txtScore: txtScore }
+        
+    }
 
     /**
      * Returns Observable of mesh array, which are loaded from a file.
@@ -271,8 +286,8 @@ export class GameUtils {
         // create a mesh object with loaded from file
         let rootMesh = BABYLON.MeshBuilder.CreateBox("bowRoot", { size: 1 }, scene);
         rootMesh.isVisible = false;
-        rootMesh.position = new BABYLON.Vector3(-0.5, -1.5, 5);
-        rootMesh.rotation = new BABYLON.Vector3(0, Math.PI / 2 + Math.PI/64, 0);
+        rootMesh.position = new BABYLON.Vector3(-0.63, -1.66, 5);
+        //rootMesh.rotation = new BABYLON.Vector3(0, Math.PI / 2 + Math.PI/64, 0);
         rootMesh.scaling = new BABYLON.Vector3(5, 5, 5);
         
         return GameUtils.createMeshFromObjFile("mesh/", "bow.obj", scene, new BABYLON.Vector3(1, 1, 1))
@@ -289,10 +304,10 @@ export class GameUtils {
 
     public static createArrow(scene: BABYLON.Scene): Observable<BABYLON.AbstractMesh> {
         // create a mesh object with loaded from file
-        let rootMesh = BABYLON.MeshBuilder.CreateBox("arrowRoot", { size: 1 }, scene);
+        let rootMesh = BABYLON.MeshBuilder.CreateBox("arrowRoot", { size: 0.1 }, scene);
         rootMesh.isVisible = false;
-        rootMesh.position = new BABYLON.Vector3(-0.48, -0.67, 6.5);
-        rootMesh.rotation = new BABYLON.Vector3(Math.PI / 2, 0,0);
+        rootMesh.position = new BABYLON.Vector3(-0.63, 4.17, 9);
+        //rootMesh.rotation = new BABYLON.Vector3(Math.PI / 2, 0,0);
         rootMesh.scaling = new BABYLON.Vector3(5, 5, 5);
         return GameUtils.createMeshFromObjFile("mesh/", "arrow.obj", scene, new BABYLON.Vector3(1, 1, 1))
             .pipe(
@@ -309,8 +324,8 @@ export class GameUtils {
         // create a mesh object with loaded from file
         let rootMesh = BABYLON.MeshBuilder.CreateBox("sightRoot", { size: 1 }, scene);
         rootMesh.isVisible = false;
-        rootMesh.position = new BABYLON.Vector3(-0.17, 0,9);
-        rootMesh.rotation = new BABYLON.Vector3(0, Math.PI / 2, 0);
+        rootMesh.position = new BABYLON.Vector3(-0.63, -1.66,5);
+        //rootMesh.rotation = new BABYLON.Vector3(0, Math.PI / 2, 0);
         rootMesh.scaling = new BABYLON.Vector3(5, 5, 5);
         return GameUtils.createMeshFromObjFile("mesh/", "sight.obj", scene, new BABYLON.Vector3(1, 1, 1))
             .pipe(
@@ -342,8 +357,8 @@ export class GameUtils {
     public static createTarget(scene: BABYLON.Scene): Observable<BABYLON.AbstractMesh> {
         let rootMesh = BABYLON.MeshBuilder.CreateBox("target", { size: 1 }, scene);
         rootMesh.isVisible = false;
-        rootMesh.position = new BABYLON.Vector3(0, 2, 50);
-        rootMesh.rotation = new BABYLON.Vector3(0, Math.PI - Math.PI / 4, 0);
+        rootMesh.position = new BABYLON.Vector3(0, 1, 50);
+        rootMesh.rotation = new BABYLON.Vector3(0, 0, 0);
         rootMesh.scaling = new BABYLON.Vector3(1, 1, 1);
         return GameUtils.createMeshFromObjFile("mesh/", "target.obj", scene, new BABYLON.Vector3(1, 1, 1))
             .pipe(

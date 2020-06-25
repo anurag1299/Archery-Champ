@@ -1,11 +1,11 @@
-# Blender MTL File: 'Target.blend'
+# Blender MTL File: 'None'
 # Material Count: 2
 
-newmtl ArcheryTarget
+newmtl ArcheryTarget.001
 Ns 18.000005
 Ka 1.000000 1.000000 1.000000
 Kd 0.588235 0.588235 0.588235
-Ks 0.097273 0.097273 0.097273
+Ks 0.304545 0.304545 0.304545
 Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
@@ -14,7 +14,7 @@ map_Kd ..\\texture\\ArcheryTarget_Textures_1024\\ArcheryTarget\\ArcheryTarget_Ba
 map_Ns ..\\texture\\ArcheryTarget_Textures_1024\\ArcheryTarget\\ArcheryTarget_Roughness.jpg
 refl ..\\texture\\ArcheryTarget_Textures_1024\\ArcheryTarget\\ArcheryTarget_Metallic.jpg
 
-newmtl Wood
+newmtl Wood.001
 Ns 18.000005
 Ka 1.000000 1.000000 1.000000
 Kd 0.588235 0.588235 0.588235
